@@ -1,0 +1,23 @@
+{% extends "management/base.html" %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	{% block content %}
+	<form action="{% url 'management:add_image' %}" method="post">
+		{% csrf_token %}
+		name:<input type="text" name="name">
+		description:<input type="text" name="description">
+		img:<input type="file" name="imag">
+		所属书籍:<select name="book">
+			{% for book in books %}
+				<option value="{{book.id}}">{{book.name}}</option>
+			{% endfor %}
+		</select>
+		<button type="submit">提交</button>
+	</form>
+	{% endblock content %}
+</body>
+</html>

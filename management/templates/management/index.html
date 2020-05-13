@@ -1,0 +1,28 @@
+{% extends "management/base.html" %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<p>This is BookManagement</p>
+{% block content %}
+{% for book in books %}
+<p>
+	书名：{{book.name}}
+</p>
+<p>
+	作者：{{book.author}}
+</p>
+
+<a href="{% url 'management:content' book.id %}">具体信息</a>
+<a href="{% url 'management:book_list' book.category %}">查看此类书籍</a>
+<a href="{% url 'management:edit_book' book.id %}">编辑</a>
+<a href="{% url 'management:delete' book.id %}">删除</a>
+{% endfor %}
+{% if user %}
+{{user.name}}
+{% endif %}
+{% endblock content %}
+</body>
+</html>

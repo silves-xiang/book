@@ -1,0 +1,21 @@
+{% extends "management/base.html" %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	{% block content %}
+<p>你好</p>
+<span>您在修改</span><span style="color: blue;">{{book.name}}</span><span>图书</span>
+<form action="{% url 'management:edit_book' book.id %}" method="post">
+	{% csrf_token %}
+	author:<input type="text" name="author" value="{{book.author}}" required>
+	price:<input type="text" name="price" value="{{book.price}}" required>
+	publish_date:<input type="date" name="publish_date" value="{{book.publish_date|date:'Y-m-d'}}" required>
+	category:<input type="text" name="category" value="{{book.category}}" required>
+	<button type="submit">submit</button>
+</form>
+{% endblock content %}
+</body>
+</html>

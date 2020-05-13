@@ -1,0 +1,16 @@
+{% extends "management/base.html" %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	{% block content %}
+	{% for book in books %}
+	<p>
+		{{book}}
+	</p>
+	{% endfor %}
+	{% endblock content %}
+</body>
+</html>

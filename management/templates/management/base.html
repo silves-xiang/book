@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div style="height: 30px; background-color: #000000;">
+		<span style="color: #ffffff;">
+			图书管理系统
+		</span>
+		<a href="{% url 'management:add_book' %}" style="color: #ffffff">add_book</a>
+		<a href="{% url 'management:add_image' %}" style="color: #ffffff">add_img</a>
+		<a href="{% url 'management:index' %}" style="color: #ffffff">主页</a>
+		{% block title %}
+		{% endblock title %}
+	</div>
+{% block content %}
+{% endblock content %}
+</body>
+</html>

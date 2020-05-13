@@ -1,0 +1,21 @@
+{% extends "management/base.html" %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+{% block content %}
+<form method="post" action="{% url 'management:add_book' %}">
+	{% csrf_token %}
+	name:<input type="text" name="name" required>
+	author:<input type="text" name="author" required>
+	price:<input type="number" name="price" required>
+	publish_date:<input type="date" name="publish_date" required>
+	category:<input type="text" name="category" required>
+	
+	<button type="submit">submit</button>
+</form>
+{% endblock content %}
+</body>
+</html>
